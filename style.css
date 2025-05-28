@@ -1,0 +1,72 @@
+
+body{
+    background-color: #d2b48c;
+}
+
+.cookie {
+    text-align: center;
+    padding: 100;
+    background-color: transparent;
+    user-select: none;
+
+}
+
+.devs {
+  font-family: "WDXL Lubrifont TC", sans-serif;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  background-color: aliceblue;
+  text-align: center;
+  border-top: 1px;
+  user-select: none;
+
+}
+
+.cookie button{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+
+.cookie img {
+    
+    margin-top: 10%;
+    width: 100;
+    height: 100;
+    cursor: pointer;
+
+}
+
+.cookie p{
+    
+    font-size: 30px;
+    
+}
+
+@keyframes clickanimation {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .animate {
+    animation: clickanimation 0.3s ease;
+  }
+
+
+  /* FONTS :) */
+.wdxl-lubrifont-tc-regular {
+  font-family: "WDXL Lubrifont TC", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+
+

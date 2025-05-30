@@ -1,15 +1,24 @@
+body {
+  background-color: #d2b48c;
+  margin: 0;
+  height: 50vh; /* full viewport height */
+  display: flex; /* make body a flex container */
+  user-select: none;
+}
 
-body{
-    background-color: #d2b48c;
+.cookie, .shop {
+  flex: 1; /* each takes 50% width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center; /* horizontal center */
+  text-align: center;
 }
 
 .cookie {
-    text-align: left;
-    padding: 100;
-    background-color: transparent;
-    user-select: none;
-    
-
+  background-color: transparent;
+  padding: 20px;
+  border-right: 2px black;
 }
 
 .devs {
@@ -23,69 +32,55 @@ body{
   text-align: center;
   border-top: 0.5mm solid brown;
   user-select: none;
-
 }
 
-.cookie button{
-    background-color: transparent;
-    border-color: transparent;
-    
+.cookie button {
+  background-color: transparent;
+  border-color: transparent;
 }
-
-
 
 .cookie img {
-    
-
   margin-top: 10%;
-
   width: 100%;
   height: 100%;
   cursor: pointer;
-
 }
 
-.cookie p{
-    
-    font-size: 30px;
-    user-select: none;    
+.cookie p {
+  font-size: 30px;
+  user-select: none;
 }
 
+/* Animation keyframes */
 @keyframes clickanimation {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
+  0%, 100% {
+    transform: scale(1);
   }
-  
-  .animate {
-    animation: clickanimation 0.3s ease;
+  50% {
+    transform: scale(1.1);
   }
+}
 
-  .shop {
-    text-align: right;
-    user-select: none;
-    
-  }
+/* Animation class */
+.animate {
+  animation: clickanimation 0.3s ease;
+}
 
-  .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
+.shop {
+  user-select: none;
+  /* text-align right removed since we're centering with flex */
+}
 
+/* Remove absolute positioning from .center */
+.center {
+  position: static;
+  transform: none;
+  text-align: center;
+}
 
-  /* FONTS :) */
+/* Fonts */
 .wdxl-lubrifont-tc-regular {
   font-family: "WDXL Lubrifont TC", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
-
-
-
-

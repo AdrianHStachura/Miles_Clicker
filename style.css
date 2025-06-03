@@ -1,84 +1,69 @@
 body {
-  background-color: #d2b48c;
   margin: 0;
-  height: 50vh; /* full viewport height */
-  display: flex; /* make body a flex container */
+  font-family: "WDXL Lubrifont TC", sans-serif;
+  background-color: #d2b48c;
   user-select: none;
-}
-
-.cookie, .shop {
-  flex: 1; /* each takes 50% width */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertical center */
-  align-items: center; /* horizontal center */
-  text-align: center;
+  min-height: 100vh;
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  height: 95vh;
+}
+
+.stats, .cookie, .shop {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.stats {
+  background-color: #f5deb3;
+  border-right: 2px solid #000;
 }
 
 .cookie {
   background-color: transparent;
-  padding: 20px;
-  border-right: 2px black;
-}
-
-.devs {
-  font-family: "WDXL Lubrifont TC", sans-serif;
-  left: 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 5%;
-  background-color: aliceblue;
-  text-align: center;
-  border-top: 0.5mm solid brown;
-  user-select: none;
+  border-right: 2px solid #000;
 }
 
 .cookie button {
-  background-color: transparent;
-  border-color: transparent;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .cookie img {
-  margin-top: 10%;
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
   cursor: pointer;
+  transition: transform 0.1s;
 }
 
-.cookie p {
-  font-size: 30px;
-  user-select: none;
-}
-
-/* Animation keyframes */
-@keyframes clickanimation {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-/* Animation class */
-.animate {
-  animation: clickanimation 0.3s ease;
+.cookie img:active {
+  transform: scale(1.1);
 }
 
 .shop {
-  user-select: none;
-  /* text-align right removed since we're centering with flex */
+  background-color: #fff8dc;
 }
 
-/* Remove absolute positioning from .center */
-.center {
-  position: static;
-  transform: none;
+.devs {
+  height: 5vh;
+  background-color: aliceblue;
   text-align: center;
+  line-height: 5vh;
+  border-top: 1px solid brown;
 }
 
-/* Fonts */
+/* Optional font class if you want to reuse it */
 .wdxl-lubrifont-tc-regular {
   font-family: "WDXL Lubrifont TC", sans-serif;
   font-weight: 500;

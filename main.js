@@ -50,6 +50,17 @@ let botscost = {
 document.getElementById("num_of_cookies").textContent = num_of_cookies;
 document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
 
+function buttonbot1(){
+    if (num_of_cookies >= 10){
+        num_of_cookies -= 10;
+        document.getElementById("num_of_cookies").textContent = num_of_cookies;
+    }
+    
+    
+}
+
+
+
 
 
 function handleClick(){

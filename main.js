@@ -2,6 +2,8 @@
 let total_num_of_cookies = 0;
 let num_of_cookies = 0;
 let multiplier = 1;
+let cps = 0;
+tickspeed = 100; // in ms
 
 
 // to access ex: bots.bot1 += 1;
@@ -53,7 +55,9 @@ document.getElementById("total_num_of_cookies").textContent = total_num_of_cooki
 function buttonbot1(){
     if (num_of_cookies >= 10){
         num_of_cookies -= 10;
+        cps += 1;
         document.getElementById("num_of_cookies").textContent = num_of_cookies;
+        document.getElementById("cps").textContent = cps;
     }
     
     
@@ -73,8 +77,14 @@ function handleClick(){
 }
 
 function interval(){
-    for (let i in bots){
-        
-    }
-    total_num_of_cookies
+    
+    num_of_cookies += cps;
+    total_num_of_cookies += cps;
+    document.getElementById("num_of_cookies").textContent = num_of_cookies;
+    document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
+    setTimeout(tickspeed)
+
 }
+
+setInterval(interval, tickspeed);
+

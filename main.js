@@ -4,7 +4,8 @@ let num_of_cookies = 0;
 let multiplier = 1;
 let cps = 0;
 tickspeed = 100; // in ms
-
+let num_of_cookies_manually = 0;
+let total_clicks = 0;
 
 // to access ex: bots.bot1 += 1;
 let bots = {
@@ -70,6 +71,8 @@ function buttonbot1(){
 function handleClick(){
     num_of_cookies = num_of_cookies + (1 * multiplier);
     total_num_of_cookies = total_num_of_cookies + (1 * multiplier);
+    num_of_cookies_manually += num_of_cookies + (1 * multiplier);
+    total_clicks += 1;
     document.getElementById("num_of_cookies").textContent = num_of_cookies;
     document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
     const image = document.querySelector(".cookie img");

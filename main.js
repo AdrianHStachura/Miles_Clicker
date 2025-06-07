@@ -3,9 +3,12 @@ let total_num_of_cookies = 0;
 let num_of_cookies = 0;
 let multiplier = 1;
 let cps = 0;
-tickspeed = 100; // in ms
+tickspeed = 500; // in ms
 let num_of_cookies_manually = 0;
 let total_clicks = 0;
+let total_seconds = 0;
+let total_minutes = 0;
+let total_hours = 0;
 
 // to access ex: bots.bot1 += 1;
 let bots = {
@@ -71,8 +74,10 @@ function buttonbot1(){
 function handleClick(){
     num_of_cookies = num_of_cookies + (1 * multiplier);
     total_num_of_cookies = total_num_of_cookies + (1 * multiplier);
-    num_of_cookies_manually += num_of_cookies + (1 * multiplier);
+    num_of_cookies_manually += (1 * multiplier);
     total_clicks += 1;
+    document.getElementById("num_of_cookies_manually").textContent = num_of_cookies_manually;
+    document.getElementById("total_clicks").textContent = total_clicks;
     document.getElementById("num_of_cookies").textContent = num_of_cookies;
     document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
     const image = document.querySelector(".cookie img");
@@ -83,6 +88,22 @@ function interval(){
     
     num_of_cookies += cps;
     total_num_of_cookies += cps;
+    total_seconds += (tickspeed / 1000);
+    if (total_seconds == 60){
+        total_seconds = 0;
+        total_minutes += 1;
+        document.getElementById("total_minutes").textContent = total_minutes;
+        if (total_minutes == 60){
+            total_hours += 1;
+            document.getElementById("total_hours").textContent = total_hours;
+        }
+    }
+    if (Number.isInteger(total_seconds)){
+        
+        document.getElementById("total_seconds").textContent = total_seconds;
+        
+    }
+    
     document.getElementById("num_of_cookies").textContent = num_of_cookies;
     document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
     setTimeout(tickspeed)

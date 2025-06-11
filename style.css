@@ -65,6 +65,11 @@ body {
 .shop p {
   font-size: 40px;
 }
+
+.shop button {
+  font-size: 40px;
+  background-color: #8B4513;
+}
 .devs {
   height: 5vh;
   background-color: aliceblue;

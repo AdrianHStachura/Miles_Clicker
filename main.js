@@ -28,7 +28,7 @@ let bots = [
 
 function upgradebutton(index){
     if (num_of_cookies >= bots[index].cost){
-        num_of_cookies -= bots[index].cost;
+        num_of_cookies -= Math.round(( bots[index].cost) * 10) / 10
         total_structures += 1;
         cps = Math.round((cps + bots[index].rate) * 10) / 10;
         bots[index].cost = Math.round(bots[index].cost * 1.5);

@@ -1,6 +1,6 @@
 
 let total_num_of_cookies = 0;
-let num_of_cookies = 0;
+let num_of_cookies = 100000;
 let multiplier = 1;
 let cps = 0;
 tickspeed = 500; // in ms
@@ -9,59 +9,35 @@ let total_clicks = 0;
 let total_seconds = 0;
 let total_minutes = 0;
 let total_hours = 0;
-
-// to access ex: bots.bot1 += 1;
-let bots = {
-    bot1: 0,
-    bot2: 0,
-    bot3: 0,
-    bot4: 0,
-    bot5: 0,
-    bot6: 0,
-    bot7: 0,
-    bot8: 0,
-    bot9: 0,
-    bot10: 0,
-  };
-
-const prodratebots = {
-    bot1: 0.2,
-    bot2: 1,
-    bot3: 5,
-    bot4: 10,
-    bot5: 25,
-    bot6: 50,
-    bot7: 100,
-    bot8: 1000,
-    bot9: 10000,
-    bot10: 100000,
-}
-
-let botscost = {
-    bot1: 0.2,
-    bot2: 1,
-    bot3: 5,
-    bot4: 10,
-    bot5: 25,
-    bot6: 50,
-    bot7: 100,
-    bot8: 1000,
-    bot9: 10000,
-    bot10: 100000,
-}
-  
+let total_structures = 0;
 
 
 
-document.getElementById("num_of_cookies").textContent = num_of_cookies;
-document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
+// to access ex: bots[i].cost = set number
 
-function buttonbot1(){
-    if (num_of_cookies >= 10){
-        num_of_cookies -= 10;
-        cps += 1;
+let bots = [
+  { name: "bot1", count: 0, cost: 10, rate: 0.2 },
+  { name: "bot2", count: 0, cost: 100, rate: 1 },
+  { name: "bot3", count: 0, cost: 500, rate: 5 },
+  { name: "bot4", count: 0, cost: 1000, rate: 10 },
+  { name: "bot5", count: 0, cost: 10000, rate: 25 },
+]
+
+
+
+
+function upgradebutton(index){
+    if (num_of_cookies >= bots[index].cost){
+        num_of_cookies -= bots[index].cost;
+        total_structures += 1;
+        cps = Math.round((cps + bots[index].rate) * 10) / 10;
+        bots[index].cost = Math.round(bots[index].cost * 1.5);
+        
         document.getElementById("num_of_cookies").textContent = num_of_cookies;
         document.getElementById("cps").textContent = cps;
+        document.getElementById("total_structures").textContent = total_structures;
+        document.getElementById(`cost-${index}`).textContent = bots[index].cost;
+        
     }
     
     
@@ -69,6 +45,8 @@ function buttonbot1(){
 
 
 
+document.getElementById("num_of_cookies").textContent = num_of_cookies;
+document.getElementById("total_num_of_cookies").textContent = total_num_of_cookies
 
 
 function handleClick(){
@@ -86,8 +64,8 @@ function handleClick(){
 
 function interval(){
     
-    num_of_cookies += cps;
-    total_num_of_cookies += cps;
+    num_of_cookies = Math.round((num_of_cookies + cps) * 10) / 10;
+    total_num_of_cookies = Math.round((total_num_of_cookies + cps) * 10) / 10;
     total_seconds += (tickspeed / 1000);
     if (total_seconds == 60){
         total_seconds = 0;
